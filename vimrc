@@ -107,4 +107,8 @@ set cursorcolumn
 set foldmethod=indent
 set foldlevel=99
 
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Backups & Undo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable vim's famous swap file :)
+set noswapfile
