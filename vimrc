@@ -107,6 +107,12 @@ set cursorcolumn
 set foldmethod=indent
 set foldlevel=99
 
+" Easily indent code blocks by keeping them highlighted. Usually after the
+" first indent the highlight is removed.
+vnoremap < <gv
+vnoremap > >gv
+" Search for visually selcted text
+vnoremap // y/<C-R>"<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backups & Undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
