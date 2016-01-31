@@ -1,3 +1,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/ir_black"]
+	path = bundle/ir_black
+	url = https://github.com/twerth/ir_black.git
