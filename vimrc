@@ -62,6 +62,8 @@ set title
 set mouse=a
 " Enable the mouse while running within GNU Screen
 set ttymouse=xterm2
+" Set history to X lines
+set history=700
 " Display numbers
 set number
 " Show line and column position
