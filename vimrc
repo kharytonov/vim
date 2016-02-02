@@ -74,7 +74,7 @@ set ruler
 " Set collor scheme
 colorscheme ir_black
 " Tab configuration
-map <leader>    :tabnew<cr>
+map <leader>tn  :tabnew<cr>
 map <leader>te  :tabedit
 map <leader>tc  :tabclose<cr>
 map <leader>tm  :tabmove
