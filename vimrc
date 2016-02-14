@@ -1,4 +1,5 @@
 execute pathogen#infect()
+set encoding=utf-8
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetypes
@@ -59,9 +60,9 @@ set incsearch
 " Will automatically reflect the buffer which you are working on.
 set title
 " Enable mouse. Use <Shift> and mouse to make selection to copy to clipboard.
-set mouse=a
+" set mouse=a
 " Enable the mouse while running within GNU Screen
-set ttymouse=xterm2
+"set ttymouse=xterm2
 " Set history to X lines
 set history=700
 " Display numbers
