@@ -1,9 +1,23 @@
 execute pathogen#infect()
-set encoding=utf-8
 
+" Remove ALL autocommands for the current group. When the .vimrc file is
+" sourced twice, the autocommands will appear twice.  To avoid this, put this
+" command in your .vimrc file, before defining autocommands: Also include it
+" within augroup
+autocmd!
+
+" Resore cursor to the last position when reopening file
+if has("autocmd")
+      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetypes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EOL formats to try.
+set ffs=unix,dos,mac
+" Character encoding and do not set BOM
+set encoding=utf8
+
 " Automatically detect file types. Place this line above the pathogen bundle
 " loading if snipmate does not work.
 filetype plugin indent on
@@ -57,6 +71,8 @@ set incsearch
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Always show the statusline
+set laststatus=2
 " Will automatically reflect the buffer which you are working on.
 set title
 " Enable mouse. Use <Shift> and mouse to make selection to copy to clipboard.
@@ -67,6 +83,8 @@ set title
 set history=700
 " Display numbers
 set number
+" Map F3 to toggle numbers
+nnoremap <F3> :set invnumber<CR>
 " Show line and column position
 set ruler
 " Set background to dark
