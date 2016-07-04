@@ -144,5 +144,5 @@ set noswapfile
 " Highlight lines longer than 80 chars "
 """"""""""""""""""""""""""""""""""""""""
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+autocmd FileType python,xml highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType python,xml match OverLength /\%81v.\+/
