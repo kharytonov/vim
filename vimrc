@@ -139,3 +139,10 @@ vnoremap // y/<C-R>"<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable vim's famous swap file :)
 set noswapfile
+
+""""""""""""""""""""""""""""""""""""""""
+" Highlight lines longer than 80 chars "
+""""""""""""""""""""""""""""""""""""""""
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
