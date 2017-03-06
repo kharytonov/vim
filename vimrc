@@ -46,8 +46,10 @@ augroup END
 " Toggle paste mode with F2
 set pastetoggle=<F2>
 
+
 " Always exit paste mode when leaving insert mode
 au InsertLeave * set nopaste
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search and Highlighting
@@ -67,6 +69,25 @@ set hlsearch
 
 " Show search matches as you type
 set incsearch
+
+" Highlight weird characters on :set list
+:highlight ExtraWhitespace ctermbg=red guibg=red
+" This line is to make sure group is not overwritten by ColorScheme commands
+:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+" Show leading whitespace that includes spaces, and trailing whitespace.
+:autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+" This is to disable highlighting while typing
+:autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" This is to reenable back highlughting when exited from insert mode
+:autocmd InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
+" This is to not allow memory leak in VIM due to a bug
+:autocmd BufWinLeave * call clearmatches()
+
+" This is to show hidden characters
+set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+set list
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " User Interface
@@ -134,6 +155,8 @@ vnoremap < <gv
 vnoremap > >gv
 " Search for visually selcted text
 vnoremap // y/<C-R>"<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Backups & Undo
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -145,4 +168,4 @@ set noswapfile
 """"""""""""""""""""""""""""""""""""""""
 
 autocmd FileType python,xml highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType python,xml match OverLength /\%81v.\+/
+autocmd FileType python,xml match OverLength /\%121v.\+/
