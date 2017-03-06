@@ -113,6 +113,7 @@ set ruler
 
 " Set collor scheme
 colorscheme ir_black
+map <F10> :let &background = ( &background == "dark" ? "light" : "dark" )<CR>
 " Tab configuration
 map <leader>tn  :tabnew<cr>
 map <leader>te  :tabedit
