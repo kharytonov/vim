@@ -70,17 +70,24 @@ set hlsearch
 " Show search matches as you type
 set incsearch
 
+""""""""""""""""""""""""""""""""""""""""
+" Highlight lines longer than 80 chars "
+""""""""""""""""""""""""""""""""""""""""
+
+autocmd FileType python,xml highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType python,xml match OverLength /\%121v.\+/
+
 " Highlight weird characters on :set list
 :highlight ExtraWhitespace ctermbg=red guibg=red
 " This line is to make sure group is not overwritten by ColorScheme commands
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " Show leading whitespace that includes spaces, and trailing whitespace.
-:autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+:autocmd BufWinEnter * 2match ExtraWhitespace /\s\+$\| \+\ze\t/
 " This is to disable highlighting while typing
-:autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+:autocmd InsertEnter * 3match ExtraWhitespace /\s\+\%#\@<!$/
 " This is to reenable back highlughting when exited from insert mode
-:autocmd InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
+:autocmd InsertLeave * 2match ExtraWhitespace /\s\+$\| \+\ze\t/
 " This is to not allow memory leak in VIM due to a bug
 :autocmd BufWinLeave * call clearmatches()
 
@@ -163,10 +170,3 @@ vnoremap // y/<C-R>"<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable vim's famous swap file :)
 set noswapfile
-
-""""""""""""""""""""""""""""""""""""""""
-" Highlight lines longer than 80 chars "
-""""""""""""""""""""""""""""""""""""""""
-
-autocmd FileType python,xml highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType python,xml match OverLength /\%121v.\+/
