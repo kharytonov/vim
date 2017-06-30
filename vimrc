@@ -70,6 +70,9 @@ set hlsearch
 " Show search matches as you type
 set incsearch
 
+" Allow backspacing over anything
+set backspace=indent,eol,start
+
 """"""""""""""""""""""""""""""""""""""""
 " Highlight lines longer than 80 chars "
 """"""""""""""""""""""""""""""""""""""""
